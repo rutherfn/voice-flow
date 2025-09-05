@@ -36,6 +36,8 @@ local.properties
 
 .gradle/
 
+build
+
 app/build
 demo/build
 core/build

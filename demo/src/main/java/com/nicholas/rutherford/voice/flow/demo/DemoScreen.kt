@@ -92,7 +92,7 @@ fun DemoScreen(viewModel: DemoViewModel) {
             verticalArrangement = Arrangement.spacedBy(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "TrackTalk Demo Listening Status Is Set To ${state.isListening}", style = MaterialTheme.typography.headlineMedium)
+            Text(text = "VoiceFlow Demo Listening Status Is Set To ${state.isListening}", style = MaterialTheme.typography.headlineMedium)
 
             Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
                 Button(onClick = { viewModel.startListening() }) {

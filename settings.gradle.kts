@@ -20,5 +20,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "VoiceFlow"
+
 include(":app")
- 
+include(":core")
+include(":demo")

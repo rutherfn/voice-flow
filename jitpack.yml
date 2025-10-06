@@ -5,7 +5,7 @@ before_install:
   - ./gradlew clean
 
 build:
-  - ./gradlew :core:build :core:publishToMavenLocal
+  - ./gradlew :core:assembleRelease :core:publishToMavenLocal
 
 publish:
   - ./gradlew :core:publishToMavenLocal

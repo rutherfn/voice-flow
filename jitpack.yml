@@ -1,0 +1,11 @@
+jdk:
+  - openjdk11
+
+before_install:
+  - ./gradlew clean
+
+build:
+  - ./gradlew :core:build :core:publishToMavenLocal
+
+publish:
+  - ./gradlew :core:publishToMavenLocal

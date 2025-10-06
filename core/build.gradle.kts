@@ -1,6 +1,3 @@
-import java.util.Properties
-import java.io.FileInputStream
-
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -8,15 +5,7 @@ plugins {
     id("maven-publish")
 }
 
-val coreProperties = Properties()
-val corePropertiesFile = file("gradle.properties")
-if (corePropertiesFile.exists()) {
-    coreProperties.load(FileInputStream(corePropertiesFile))
-}
-
-val githubUsername = coreProperties.getProperty("GITHUB_USERNAME") ?: project.findProperty("GITHUB_USERNAME") as String? ?: System.getenv("GITHUB_USERNAME")
-val githubToken = coreProperties.getProperty("GITHUB_TOKEN") ?: project.findProperty("GITHUB_TOKEN") as String? ?: System.getenv("GITHUB_TOKEN")
-val libraryVersion = coreProperties.getProperty("LIBRARY_VERSION") ?: project.findProperty("LIBRARY_VERSION") as String? ?: System.getenv("LIBRARY_VERSION")
+version = "1.0.0"
 
 android {
     namespace = "com.nicholas.rutherford.voice.flow.core"
@@ -61,19 +50,34 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
                 
-                groupId = "com.nicholas.rutherford"
+                groupId = "com.github.rutherfn"
                 artifactId = "voice-flow"
-                version = libraryVersion
-            }
-        }
-        
-        repositories {
-            maven {
-                name = "GitHubPackages"
-                url = uri("https://maven.pkg.github.com/rutherfn/voice-flow")
-                credentials {
-                    username = githubUsername
-                    password = githubToken
+                version = project.version.toString()
+                
+                pom {
+                    name.set("Voice Flow")
+                    description.set("A voice command library for Android")
+                    url.set("https://github.com/rutherfn/voice-flow")
+                    
+                    licenses {
+                        license {
+                            name.set("MIT License")
+                            url.set("https://opensource.org/licenses/MIT")
+                        }
+                    }
+                    
+                    developers {
+                        developer {
+                            id.set("rutherfn")
+                            name.set("Nicholas Rutherford")
+                        }
+                    }
+                    
+                    scm {
+                        connection.set("scm:git:git://github.com/rutherfn/voice-flow.git")
+                        developerConnection.set("scm:git:ssh://github.com:rutherfn/voice-flow.git")
+                        url.set("https://github.com/rutherfn/voice-flow")
+                    }
                 }
             }
         }

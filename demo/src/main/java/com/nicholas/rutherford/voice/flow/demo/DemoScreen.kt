@@ -92,15 +92,45 @@ fun DemoScreen(viewModel: DemoViewModel) {
             verticalArrangement = Arrangement.spacedBy(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "VoiceFlow Demo Listening Status Is Set To ${state.isListening}", style = MaterialTheme.typography.headlineMedium)
+            Text(
+                text = "VoiceFlow Demo", 
+                style = MaterialTheme.typography.headlineLarge
+            )
+            
+            Text(
+                text = "Command Listening: ${state.isListening}", 
+                style = MaterialTheme.typography.headlineMedium
+            )
+            
+            Text(
+                text = "Phrase Listening: ${state.isPhraseListening}", 
+                style = MaterialTheme.typography.headlineMedium
+            )
 
             Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
                 Button(onClick = { viewModel.startListening() }) {
-                    Text("Start Listening")
+                    Text("Start Command Listening")
                 }
                 Button(onClick = { viewModel.stopListening() }) {
-                    Text("Stop Listening")
+                    Text("Stop Command Listening")
                 }
+            }
+            
+            Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+                Button(onClick = { viewModel.startPhraseListening() }) {
+                    Text("Capture Phrase")
+                }
+                Button(onClick = { viewModel.stopPhraseListening() }) {
+                    Text("Stop Phrase Capture")
+                }
+            }
+            
+            state.capturedPhrase?.let { phrase ->
+                Text(
+                    text = "Captured Phrase: \"$phrase\"",
+                    style = MaterialTheme.typography.bodyLarge,
+                    modifier = Modifier.padding(16.dp)
+                )
             }
         }
     }

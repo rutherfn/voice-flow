@@ -41,3 +41,4 @@ build
 app/build
 demo/build
 core/build
+core/gradle.properties

@@ -51,7 +51,7 @@ afterEvaluate {
                 from(components["release"])
                 
                 groupId = "com.github.rutherfn"
-                artifactId = "voice-flow"
+                artifactId = "core"
                 version = project.version.toString()
                 
                 pom {

@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # VoiceFlow Library Build and Test Script
-# This script builds and tests the VoiceFlow library for JitPack distribution
+# This script builds and tests the VoiceFlow library
 
-echo "🚀 Building VoiceFlow Library for JitPack..."
+echo "🚀 Building VoiceFlow Library..."
 
 # Check if we're in the right directory
 if [ ! -f "settings.gradle.kts" ]; then
@@ -26,23 +26,14 @@ echo "🧪 Testing the build..."
 if [ $? -eq 0 ]; then
     echo "✅ Successfully built VoiceFlow library!"
     echo "📋 Library details:"
-    echo "   - Group ID: com.github.rutherfn"
-    echo "   - Artifact ID: voice-flow"
-    echo "   - Version: 1.0.0"
+    echo "   - AAR Location: core/build/outputs/aar/core-release.aar"
+    echo "   - Version: 1.0.3"
     echo ""
-    echo "🔗 To use this library in another project via JitPack:"
-    echo "   repositories {"
-    echo "       maven { url 'https://jitpack.io' }"
-    echo "   }"
+    echo "🔗 To use this library in another project:"
+    echo "   1. Copy the AAR file to your project's libs directory"
+    echo "   2. Add dependency: implementation files('libs/voice-flow-core.aar')"
     echo ""
-    echo "   dependencies {"
-    echo "       implementation 'com.github.rutherfn:voice-flow:1.0.0'"
-    echo "   }"
-    echo ""
-    echo "📝 To publish to JitPack:"
-    echo "   1. Create a Git tag: git tag 1.0.0"
-    echo "   2. Push the tag: git push origin 1.0.0"
-    echo "   3. JitPack will automatically build and publish your library"
+    echo "📝 For easy updates, use the update-aar.sh script"
 else
     echo "❌ Build failed. Check the error messages above."
     exit 1

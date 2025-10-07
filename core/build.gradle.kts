@@ -2,10 +2,8 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     id("kotlin-parcelize")
-    id("maven-publish")
 }
 
-group = "com.github.rutherfn"
 version = "1.0.3"
 
 android {
@@ -43,18 +41,4 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.lifecycle.process)
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                from(components["release"])
-                
-                groupId = group.toString()
-                artifactId = "core"
-                version = version.toString()
-            }
-        }
-    }
 }

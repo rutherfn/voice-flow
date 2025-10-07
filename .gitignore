@@ -42,3 +42,9 @@ app/build
 demo/build
 core/build
 core/gradle.properties
+
+# Personal scripts (contains local paths)
+update-aar.sh
+
+# Local AAR output
+libs/

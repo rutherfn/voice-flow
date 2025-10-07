@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.github.rutherfn"
-version = "1.0.2"
+version = "1.0.3"
 
 android {
     namespace = "com.nicholas.rutherford.voice.flow.core"

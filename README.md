@@ -20,7 +20,7 @@ Add the dependency to your app's `build.gradle`:
 
 ```gradle
 dependencies {
-    implementation 'com.github.rutherfn:voice-flow:1.0.0'
+    implementation 'com.github.rutherfn:core:1.0.0'
 }
 ```
 

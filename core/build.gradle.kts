@@ -5,7 +5,8 @@ plugins {
     id("maven-publish")
 }
 
-version = "1.0.0"
+group = "com.github.rutherfn"
+version = "1.0.2"
 
 android {
     namespace = "com.nicholas.rutherford.voice.flow.core"
@@ -50,35 +51,9 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
                 
-                groupId = "com.github.rutherfn"
+                groupId = group.toString()
                 artifactId = "core"
-                version = project.version.toString()
-                
-                pom {
-                    name.set("Voice Flow")
-                    description.set("A voice command library for Android")
-                    url.set("https://github.com/rutherfn/voice-flow")
-                    
-                    licenses {
-                        license {
-                            name.set("MIT License")
-                            url.set("https://opensource.org/licenses/MIT")
-                        }
-                    }
-                    
-                    developers {
-                        developer {
-                            id.set("rutherfn")
-                            name.set("Nicholas Rutherford")
-                        }
-                    }
-                    
-                    scm {
-                        connection.set("scm:git:git://github.com/rutherfn/voice-flow.git")
-                        developerConnection.set("scm:git:ssh://github.com:rutherfn/voice-flow.git")
-                        url.set("https://github.com/rutherfn/voice-flow")
-                    }
-                }
+                version = version.toString()
             }
         }
     }
